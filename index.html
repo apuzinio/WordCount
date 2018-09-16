@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <!–– CSS -->
+        <style>
+            font-family: sans-serif;
+            font-size: 24px;
+        </style>
+        
+        <!–– JAVASCRIPT -->
+        <script type="text/javascript">
+            function process_submit() {
+                var input_text = document.getElementById('input_text').value;
+                console.log("input_text: " + input_text);
+                var word_count = input_text.split(' ').length;
+                console.log("word_count: " + word_count);
+                document.getElementById("word_count").innerHTML = "Word Count: " + word_count;
+                document.getElementById("word_count").style.visibility = "visible";
+                return false;
+            }
+        </script>
+    </head>
+
+    <!–– HTML -->
+    <body>
+        <form>
+            <fieldset>
+                <legend>Enter some text:</legend>
+                <input type="text" id="input_text" size="60">
+            </fieldset><br>
+            <p>
+                <input type="submit" value="Submit" onclick="return process_submit()"><br>
+            </p>
+        </form>
+        <p>
+            <div id="word_count" style="visibility: hidden;"></div>
+        </p>
+    </body>
+
+</html>
+
