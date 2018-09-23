@@ -4,19 +4,28 @@
     <head>
         <!–– CSS -->
         <style>
-            font-family: sans-serif;
-            font-size: 24px;
+            /* Set font size for web page */
+            * {
+                font-family: sans-serif;
+                font-size: 24px;
+            }
         </style>
         
         <!–– JAVASCRIPT -->
         <script type="text/javascript">
+            // Function called when user clicks on submit button
             function process_submit() {
+                // Read text user entered in the HTML element with ID "input_text"
                 var input_text = document.getElementById('input_text').value;
+                // Make sure to turn on "View->Developer->Javascript Console" in browser to see output
                 console.log("input_text: " + input_text);
+                // Split the intput sting into array elements divided by space and count how many words
                 var word_count = input_text.split(' ').length;
                 console.log("word_count: " + word_count);
+                // Write result into HTML element with ID "word_count" and make it visible
                 document.getElementById("word_count").innerHTML = "Word Count: " + word_count;
                 document.getElementById("word_count").style.visibility = "visible";
+                // Function should return false so we stay on this web page
                 return false;
             }
         </script>
@@ -24,16 +33,21 @@
 
     <!–– HTML -->
     <body>
+        <!–– form is the HTML tag we use to take input form user -->
         <form>
+            <!–– fieldset is the HTML tag to create a label and input field together -->
             <fieldset>
                 <legend>Enter some text:</legend>
+                <!–– "input_text" is the ID of the HTML element where user enters a sentence -->
                 <input type="text" id="input_text" size="60">
             </fieldset><br>
             <p>
+                <!–– User will click on submit button to run our Javascript code -->
                 <input type="submit" value="Submit" onclick="return process_submit()"><br>
             </p>
         </form>
         <p>
+            <!–– "word_count" is the ID of the HTML element where Javascript will write the result -->
             <div id="word_count" style="visibility: hidden;"></div>
         </p>
     </body>
